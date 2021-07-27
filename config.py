@@ -1,5 +1,5 @@
 import albumentations as A
-import torch.cuda
+import torch
 from albumentations.pytorch import ToTensorV2
 
 

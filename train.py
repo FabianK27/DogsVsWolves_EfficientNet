@@ -19,7 +19,7 @@ def train_fn(model, train_loader, optimizer, loss_fn):
     total_loss = []
     for batch, (image, label) in enumerate(loop):
         image = image.to(args.device)
-        label = label.float()
+        label = label.float().to(args.device)
 
         predictions = model(image).squeeze(1)
 
@@ -64,7 +64,7 @@ def main():
         if (epoch+1) % args.validation_frequency == 0:
             print('Validating the Accuray..')
             accuracy = getAccuracy(model, val_loader, args.device)
-            print(f'Accuracy after epoch {epoch}: {accuracy}')
+            print(f'Accuracy after epoch {epoch+1}: {accuracy}')
             val_losses.append(accuracy)
 
 
